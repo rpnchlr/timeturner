@@ -1,0 +1,10 @@
+{
+  "name": "timeturner",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/date-utils.test.mjs",
+    "check": "node tests/static-check.mjs"
+  }
+}

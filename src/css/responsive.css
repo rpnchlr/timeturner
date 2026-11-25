@@ -1,0 +1,30 @@
+@media (max-width: 720px) {
+  .page-grid { width: min(100% - 42px, 1380px); }
+  .hero.page-grid { width: min(100% - 42px, 1380px); }
+  .topbar { padding-top: 23px; }
+  .hero { padding-block: 20px; }
+  .countdown { gap: clamp(4px, .7vw, 7px); }
+  .countdown-unit { min-width: 0; }
+  .countdown-value { font-size: clamp(30px, 6.8vw, 54px); letter-spacing: -.12em; }
+  .countdown-separator { font-size: clamp(23px, 5.1vw, 37px); }
+  .unit-label { font-size: 7px; letter-spacing: .08em; }
+  .settings-header { padding: 27px 22px 23px; }
+  .settings-body { padding-inline: 22px; }
+  .settings-footer { align-items: flex-start; flex-direction: column; padding: 14px 22px; }
+  .settings-footer > div { width: 100%; }
+  .settings-footer .secondary-button, .settings-footer .primary-button { flex: 1; }
+}
+@media (max-width: 430px) {
+  .page-grid { width: calc(100% - 30px); }
+  .hero.page-grid { width: calc(100% - 30px); }
+  .countdown { gap: 3px; }
+  .countdown-value { font-size: clamp(24px, 6vw, 34px); }
+  .countdown-separator { font-size: clamp(20px, 5vw, 24px); }
+  .unit-label { font-size: 6px; letter-spacing: .03em; }
+  .hero { padding-block: 18px; }
+  .wallpaper-library { grid-template-columns: repeat(3, 1fr); }
+  .control-grid { grid-template-columns: 1fr; gap: 21px; }
+  .field-row { gap: 9px; }
+  .destructive-actions { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .wallpaper-url-row { align-items: flex-start; flex-direction: column; }
+}

@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import { fromLocalInputValues, getRemaining, isValidFutureTimestamp, pad, toLocalInputValues } from '../src/js/date-utils.js';
+import { importState, serializeState } from '../src/js/storage.js';
+
+const now = Date.now();
+const future = now + (2 * 24 * 60 * 60 * 1000) + (3 * 60 * 60 * 1000) + (4 * 60 * 1000) + 5 * 1000 + 5;
+const remaining = getRemaining(future, now);
+assert.deepEqual({ days: remaining.days, hours: remaining.hours, minutes: remaining.minutes, seconds: remaining.seconds, milliseconds: remaining.milliseconds, expired: remaining.expired }, { days: 2, hours: 3, minutes: 4, seconds: 5, milliseconds: 5, expired: false });
+assert.equal(pad(7, 3), '007');
+assert.equal(getRemaining(now - 1, now).diff, 0);
+assert.equal(getRemaining(now - 1, now).expired, true);
+assert.equal(isValidFutureTimestamp(future, now), true);
+assert.equal(isValidFutureTimestamp(now, now), false);
+const input = toLocalInputValues(future);
+assert.equal(fromLocalInputValues(input.date, input.time), new Date(`${input.date}T${input.time}:00`).getTime());
+assert.equal(Number.isNaN(fromLocalInputValues('', '')), true);
+const exported = serializeState({ deadline: { title: 'Test', targetTimestamp: future } });
+const imported = importState(exported);
+assert.equal(imported.deadline.title, 'Test');
+assert.equal(imported.deadline.targetTimestamp, future);
+console.log('date-utils: all assertions passed');

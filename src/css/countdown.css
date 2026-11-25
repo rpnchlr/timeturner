@@ -1,0 +1,8 @@
+.countdown.is-expired .countdown-value { color: var(--muted); }
+.countdown.is-expired .countdown-separator { color: var(--faint); }
+.countdown.hide-labels .unit-label { display: none; }
+.countdown.hide-labels .countdown-unit { gap: 0; }
+.countdown.hide-seconds .seconds-unit, .countdown.hide-seconds .seconds-separator,
+.countdown.hide-seconds .milliseconds-unit, .countdown.hide-seconds .milliseconds-separator { display: none; }
+.countdown.many-days .countdown-value { font-size: clamp(42px, 6.1vw, 108px); }
+.milliseconds-unit .countdown-value { opacity: .86; }
